@@ -49,12 +49,12 @@ jobs:
      - name: Build image and push database
        uses: docker/build-push-action@v3
        with:
-          context: ./database-directory
+          context: .
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops/database
 
      - name: Build image and push httpd
        uses: docker/build-push-action@v3
        with:
-        context: ./httpd-directory
+        context: ./httpserver
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops/httpd
 
