@@ -48,7 +48,7 @@ jobs:
          # relative path to the place where source code with Dockerfile is located
          context: ./simple-api-student-main
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops:simple-api-student-main
+         tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api-student-main:latest
          # build on feature branches, push only on main branch
          push: ${{ github.ref == 'refs/heads/main' }}
 
@@ -56,14 +56,14 @@ jobs:
        uses: docker/build-push-action@v3
        with:
           context: .
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops:database
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-database:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
      - name: Build image and push httpd
        uses: docker/build-push-action@v3
        with:
         context: ./httpserver
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops:httpd
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-httpd:latest
         push: ${{ github.ref == 'refs/heads/main' }}
 
 
