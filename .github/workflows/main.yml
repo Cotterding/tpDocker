@@ -47,8 +47,14 @@ jobs:
          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/simple-api
 
      - name: Build image and push database
-         # DO the same for database
+       uses: docker/build-push-action@v3
+       with:
+          context: ./database-directory
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops/database
 
      - name: Build image and push httpd
-       # DO the same for httpd
+       uses: docker/build-push-action@v3
+       with:
+        context: ./httpd-directory
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops/httpd
 
