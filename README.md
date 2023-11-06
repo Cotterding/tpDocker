@@ -230,9 +230,15 @@ Retrieving a project key and an organization key, then creating a secret in GitH
 
 ![image](https://github.com/Cotterding/tpDocker/assets/107808913/cbc72db6-c4d6-4455-be69-883297b2949b)
 
-We get HelloWorld at the right address:  
+Adding 
+```
+- name: Build and test with Maven
+        working-directory : simple-api-student-main
+        run: |
+          mvn -B verify sonar:sonar -Dsonar.projectKey=Cotterding_tpDocker -Dsonar.organization=cotterding -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+```
 
-![image](https://github.com/Cotterding/tpDocker/assets/107808913/cfea8088-bc45-4ce4-b364-3f84b2263199)
+![image](https://github.com/Cotterding/tpDocker/assets/107808913/a685b78a-751f-4eff-a1cb-2138895bd2a4)
 
 ## 3-1 Document your inventory and base commands
 
